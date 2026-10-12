@@ -15,7 +15,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Hand-embossed seated Goddess Lakshmi idol flanked by holy kalash and fine kemp spinels. Handcrafted by hereditary master karigars of Telangana.',
     images: [
-      '/hero_gold_jewellery.jpg'
+      '/images/products/temple_lakshmi_choker.jpg',
+      '/images/temple_necklace.jpg'
     ],
     inStock: true,
     featured: true,
@@ -36,6 +37,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Twin royal peacocks handcrafted with heirloom filigree wire craft and hidden screw clasp. Cast in solid 22K pure hallmarked gold.',
     images: [
+      '/images/products/regal_mayur_kada.jpg',
       '/images/bangles_kadas.jpg'
     ],
     inStock: true,
@@ -57,6 +59,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Auspicious double-strand black beads strung with a regal Mughal-inspired uncut kundan centerpiece and floral drop motifs.',
     images: [
+      '/images/products/kundan_mangalsutra.jpg',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -78,6 +81,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Authentic temple coin necklace with delicate floral separators and antique red enamel accents. Traditional South Indian wedding bridal jewel.',
     images: [
+      '/images/products/floral_kasu_mala.jpg',
       '/images/temple_necklace.jpg'
     ],
     inStock: true,
@@ -99,6 +103,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Signature piece sculpted with Gaja elephant heads and floral creepers. Hallmarked at our traditional Pot Market atelier.',
     images: [
+      '/images/products/ganesha_lotus_kada.jpg',
       '/images/bangles_kadas.jpg'
     ],
     inStock: true,
@@ -120,7 +125,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'South Indian temple carving depicting Ashtalakshmi blessings. Micro-detailed chisel work with secure side hinge.',
     images: [
-      '/images/bangles_kadas.jpg'
+      '/images/products/regal_mayur_kada.jpg',
+      '/images/products/ganesha_lotus_kada.jpg'
     ],
     inStock: true,
     featured: true,
@@ -141,6 +147,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Elephant procession carvings in royal antique 22K matte gold finish. Complete set of four stackable wedding bangles.',
     images: [
+      '/images/products/antique_elephant_bangles.jpg',
       '/images/bangles_kadas.jpg'
     ],
     inStock: true,
@@ -162,6 +169,7 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Detailed feather filigree with hanging bell pearls. Perfectly balanced ear weight with solid screw back.',
     images: [
+      '/images/products/royal_polki_jhumkas.jpg',
       '/images/earrings_jhumkas.jpg'
     ],
     inStock: true,
@@ -183,7 +191,8 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Overlapping Lakshmi coins soldered to a flexible gold rope chain with rubies embedded in the border frame.',
     images: [
-      '/images/temple_necklace.jpg'
+      '/images/products/floral_kasu_mala.jpg',
+      '/images/products/temple_lakshmi_choker.jpg'
     ],
     inStock: true,
     featured: false,
@@ -204,7 +213,8 @@ export const initialProducts: Product[] = [
     occasion: 'Gifting & Auspicious',
     description: 'Concealed screw clasp featuring central Vinayaka motif surrounded by blooming lotus petals.',
     images: [
-      '/images/bangles_kadas.jpg'
+      '/images/products/ganesha_lotus_kada.jpg',
+      '/images/products/regal_mayur_kada.jpg'
     ],
     inStock: true,
     featured: false,
@@ -225,6 +235,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Authentic certified gemstones arranged according to Vedic planetary alignment in an open claw setting.',
     images: [
+      '/images/products/navratna_polki_ring.jpg',
       '/images/polki_rings.jpg'
     ],
     inStock: true,
@@ -246,6 +257,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Dual-strand faceted black beads interspersed with handcrafted 22K gold balls and a sacred thali pendant.',
     images: [
+      '/images/products/kundan_mangalsutra.jpg',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -267,6 +279,7 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Intricate Vrindavan theme with flute, peacock feathers, and paired jhumkis with emerald hanging drops.',
     images: [
+      '/images/products/temple_lakshmi_choker.jpg',
       '/images/temple_necklace.jpg'
     ],
     inStock: true,
@@ -288,6 +301,7 @@ export const initialProducts: Product[] = [
     occasion: 'Gifting & Auspicious',
     description: 'NABL accredited refinery assay certified Lakshmi-Ganesh 24 karat bullion coin with tamper-proof blister packaging.',
     images: [
+      '/images/products/lakshmi_gold_coin.jpg',
       '/images/gold_coins.jpg'
     ],
     inStock: true,
@@ -309,6 +323,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Multi-tier royal crescent design crowned with kundan clusters and dancing cluster seed pearls.',
     images: [
+      '/images/products/royal_polki_jhumkas.jpg',
       '/images/earrings_jhumkas.jpg'
     ],
     inStock: true,
@@ -330,6 +345,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Rich bunches of pearls inspired by the ancient Coromandel coast fishermen, crowned with cabochon rubies.',
     images: [
+      '/images/products/guttapusalu_long_haar.jpg',
       '/images/temple_necklace.jpg'
     ],
     inStock: true,
@@ -351,6 +367,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Traditional inverted V-shaped South Indian bajuband adorned with dancing peacocks and emerald droplets.',
     images: [
+      '/images/products/surya_chandra_tikka.jpg',
       '/images/bridal_sets.jpg'
     ],
     inStock: true,
@@ -372,6 +389,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Heirloom Nizam-era choker featuring open-set syndicate polki diamonds laced with Russian emerald drops.',
     images: [
+      '/images/products/diamond_polki_choker.jpg',
       '/hero_gold_jewellery.jpg'
     ],
     inStock: true,
@@ -393,7 +411,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Epic Ramayana divine wedding panel sculpted across linked medallions with antique Nakshi detailing.',
     images: [
-      '/images/temple_necklace.jpg'
+      '/images/temple_necklace.jpg',
+      '/images/products/floral_kasu_mala.jpg'
     ],
     inStock: true,
     featured: false,
@@ -414,6 +433,7 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Studded pyramidal spikes in traditional Marwadi-Deccani antique gold with seamless hinge pins.',
     images: [
+      '/images/products/antique_elephant_bangles.jpg',
       '/images/bangles_kadas.jpg'
     ],
     inStock: true,
@@ -435,6 +455,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Grand waistbelt featuring Gajalakshmi medallion flanked by caparisoned temple elephants and hanging gold ghungroos.',
     images: [
+      '/images/products/gajalakshmi_vaddanam.jpg',
       '/images/bridal_sets.jpg'
     ],
     inStock: true,
@@ -456,6 +477,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Vibrant cobalt blue and green Banarasi vitreous enamel work on pure gold dome with pearl tassels.',
     images: [
+      '/images/products/royal_polki_jhumkas.jpg',
       '/images/earrings_jhumkas.jpg'
     ],
     inStock: true,
@@ -477,7 +499,8 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Diamond-cut intertwined gold helical spirals creating exceptional light reflection and durable everyday strength.',
     images: [
-      '/images/chains_mangalsutra.jpg'
+      '/images/chains_mangalsutra.jpg',
+      '/images/products/kundan_mangalsutra.jpg'
     ],
     inStock: true,
     featured: false,
@@ -498,6 +521,7 @@ export const initialProducts: Product[] = [
     occasion: 'Gifting & Auspicious',
     description: 'Original Panchamukhi Rudraksha beads encased in 22K gold caps and linked with handcrafted gold loop wire.',
     images: [
+      'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -519,6 +543,7 @@ export const initialProducts: Product[] = [
     occasion: 'Gifting & Auspicious',
     description: 'Minted 24K 99.9% investment grade gold ingot certified by IBJA & NABL labs with serial barcode certification.',
     images: [
+      '/images/products/lakshmi_gold_coin.jpg',
       '/images/gold_coins.jpg'
     ],
     inStock: true,
@@ -540,6 +565,7 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Lord Venkateswara icon sculptured in divine posture with ruby shanku-chakra and natural emerald garland.',
     images: [
+      '/images/products/temple_lakshmi_choker.jpg',
       '/images/temple_necklace.jpg'
     ],
     inStock: true,
@@ -561,7 +587,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Sacred eight divine Lakshmi manifestations deeply carved in 22K antique gold with fine hinge pins and ruby florets.',
     images: [
-      '/images/bangles_kadas.jpg'
+      '/images/products/regal_mayur_kada.jpg',
+      '/images/products/antique_elephant_bangles.jpg'
     ],
     inStock: true,
     featured: true,
@@ -582,6 +609,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Traditional broad royal patla wedding bangles chiseled with intricate geometric chevron lattices and antique patina.',
     images: [
+      '/images/products/antique_elephant_bangles.jpg',
       '/images/bangles_kadas.jpg'
     ],
     inStock: true,
@@ -603,7 +631,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Legendary mythical Makara sea-creature terminal heads studded with cabochon emerald eyes and fine micro-scale engravings.',
     images: [
-      '/images/bangles_kadas.jpg'
+      '/images/products/ganesha_lotus_kada.jpg',
+      '/images/products/regal_mayur_kada.jpg'
     ],
     inStock: true,
     featured: true,
@@ -624,7 +653,8 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Traditional spiked pyramidal studs in solid 22K antique gold. Hand-forged heavy heritage kadas with internal threaded lock.',
     images: [
-      '/images/bangles_kadas.jpg'
+      '/images/bangles_kadas.jpg',
+      '/images/products/antique_elephant_bangles.jpg'
     ],
     inStock: true,
     featured: false,
@@ -645,7 +675,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Uncut syndicate polki stones set in pure gold foil with imperial crimson meenakari enamel floral work along inner lining.',
     images: [
-      '/images/bangles_kadas.jpg'
+      '/images/products/regal_mayur_kada.jpg',
+      '/images/products/diamond_polki_choker.jpg'
     ],
     inStock: true,
     featured: true,
@@ -666,6 +697,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Inverted chevron vanki ridges chiseled in pure 22K gold. Lightweight yet rigid construction designed for stackable daily elegance.',
     images: [
+      '/images/products/ganesha_lotus_kada.jpg',
       '/images/bangles_kadas.jpg'
     ],
     inStock: true,
@@ -687,6 +719,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Grand royal bridal necklace adorned with curved paisley mango units, Burmese kemp spinels, and seated Gajalakshmi centerpiece.',
     images: [
+      '/images/products/floral_kasu_mala.jpg',
       '/images/temple_necklace.jpg'
     ],
     inStock: true,
@@ -708,6 +741,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Lavish bunches of clustered coastal natural pearls suspended from a kemp and emerald-encrusted gold collar frame.',
     images: [
+      '/images/products/guttapusalu_long_haar.jpg',
       '/images/temple_necklace.jpg'
     ],
     inStock: true,
@@ -729,6 +763,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Rigid torque neckpiece handcrafted with uncut polki florets and Zambian emerald bead drops inspired by royal Deccan courts.',
     images: [
+      '/images/products/diamond_polki_choker.jpg',
       '/hero_gold_jewellery.jpg'
     ],
     inStock: true,
@@ -750,7 +785,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Grand 30-inch royal long haar featuring twin peacock side medallions and a majestic multi-tier temple lotus pendant.',
     images: [
-      '/images/temple_necklace.jpg'
+      '/images/products/floral_kasu_mala.jpg',
+      '/images/products/guttapusalu_long_haar.jpg'
     ],
     inStock: true,
     featured: true,
@@ -771,7 +807,8 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Sacred nine astrological gems set in deeply embossed 22K gold temple arches with hanging freshwater pearl drops.',
     images: [
-      '/hero_gold_jewellery.jpg'
+      '/images/products/navratna_polki_ring.jpg',
+      '/images/products/temple_lakshmi_choker.jpg'
     ],
     inStock: true,
     featured: false,
@@ -792,6 +829,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Auspicious dual half-spheres (vatis) strung on four-strand micro black spinels with 22K filigree gold beads.',
     images: [
+      '/images/products/kundan_mangalsutra.jpg',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -813,7 +851,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Heirloom locket studded with uncut polki diamonds and Basra seed pearls on dual black bead chain with adjustable hook.',
     images: [
-      '/images/chains_mangalsutra.jpg'
+      '/images/chains_mangalsutra.jpg',
+      '/images/products/kundan_mangalsutra.jpg'
     ],
     inStock: true,
     featured: false,
@@ -834,6 +873,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Heavy masculine interlocking square box links offering supreme tensile strength and polished diamond-cut gleam.',
     images: [
+      'https://images.unsplash.com/photo-1588022283584-eb51e2475ac8?q=80&w=800&auto=format&fit=crop',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -855,6 +895,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Classic south-Indian flexible woven wire chain with traditional S-hook lock built for generations of everyday wear.',
     images: [
+      'https://images.unsplash.com/photo-1625792508553-5e66a81659fa?q=80&w=800&auto=format&fit=crop',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -876,6 +917,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Delicate single strand black bead chain with a blossoming 22K gold floral pendant for contemporary professional lifestyle.',
     images: [
+      '/images/products/kundan_mangalsutra.jpg',
       '/images/chains_mangalsutra.jpg'
     ],
     inStock: true,
@@ -897,6 +939,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Spectacular three-tiered umbrella jhumkas with micro-chiseled temple dancers, kemp rubies, and pearl tassels.',
     images: [
+      '/images/products/royal_polki_jhumkas.jpg',
       '/images/earrings_jhumkas.jpg'
     ],
     inStock: true,
@@ -918,7 +961,8 @@ export const initialProducts: Product[] = [
     occasion: 'Festive / Pooja',
     description: 'Gleaming crescent moon silhouette crowned with floral polki tops and suspended cluster pearl droplets.',
     images: [
-      '/images/earrings_jhumkas.jpg'
+      '/images/earrings_jhumkas.jpg',
+      '/images/products/royal_polki_jhumkas.jpg'
     ],
     inStock: true,
     featured: false,
@@ -939,7 +983,8 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Royal bridal temple jhumkas accompanied by three-strand ear-support chains (champaswaralu) embellished with rubies.',
     images: [
-      '/images/earrings_jhumkas.jpg'
+      '/images/products/royal_polki_jhumkas.jpg',
+      '/images/products/temple_lakshmi_choker.jpg'
     ],
     inStock: true,
     featured: true,
@@ -960,6 +1005,7 @@ export const initialProducts: Product[] = [
     occasion: 'Daily Elegance',
     description: 'Traditional helix cartilage bugadi and matching flower lobe studs in high-polish 22K yellow gold.',
     images: [
+      'https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?q=80&w=800&auto=format&fit=crop',
       '/images/earrings_jhumkas.jpg'
     ],
     inStock: true,
@@ -981,7 +1027,9 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'The ultimate grand bridal trousseau: Short Temple Choker, Long Kasu Haar, Jhumkas with Matilu, and Maang Tikka.',
     images: [
-      '/images/bridal_sets.jpg'
+      '/hero_gold_jewellery.jpg',
+      '/images/bridal_sets.jpg',
+      '/images/products/temple_lakshmi_choker.jpg'
     ],
     inStock: true,
     featured: true,
@@ -1002,6 +1050,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Majestic temple waistbelt sculpted with Gajalakshmi in high relief, caparisoned elephants, and musical ghungroo bells.',
     images: [
+      '/images/products/gajalakshmi_vaddanam.jpg',
       '/images/bridal_sets.jpg'
     ],
     inStock: true,
@@ -1023,6 +1072,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Pair of traditional V-shaped bajuband armlets featuring peacocks with spread plumage and pear-cut emerald drops.',
     images: [
+      '/images/products/regal_mayur_kada.jpg',
       '/images/bridal_sets.jpg'
     ],
     inStock: true,
@@ -1044,6 +1094,7 @@ export const initialProducts: Product[] = [
     occasion: 'Bridal / Muhurtham',
     description: 'Sacred celestial Sun and Moon head adornments with triple pearl chain mathapatti for the traditional South Indian bride.',
     images: [
+      '/images/products/surya_chandra_tikka.jpg',
       '/images/bridal_sets.jpg'
     ],
     inStock: true,

@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
     { name: 'Showroom Home', path: '/home' },
     { name: 'Masterpiece Collections', path: '/catalog' },
     { name: 'Swarna Sanchay', path: '/schemes' },
-    { name: 'Heritage Atelier', path: '/custom-bridal' },
+    { name: 'Custom Design Studio', path: '/custom-bridal' },
     { name: 'Bridal Guild', path: '/catalog?category=bridal' },
     { name: 'Showrooms', path: '/showrooms' }
   ];

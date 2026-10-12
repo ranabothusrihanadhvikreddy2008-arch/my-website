@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Calculator, TrendingUp, Clock } from 'lucide-react';
+import { Calculator, TrendingUp, Clock, RefreshCw } from 'lucide-react';
 import { useGold } from '../../context/GoldContext';
 import { CalculatorModal } from './CalculatorModal';
 
 export const GoldRateTicker: React.FC = () => {
-  const { goldRates } = useGold();
+  const { goldRates, syncLiveDailyRates } = useGold();
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
 
   const sovereignValue = goldRates.gold22k * 8;
   const bullionBarValue = goldRates.gold24k * 10;
@@ -29,11 +30,24 @@ export const GoldRateTicker: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-1.5 text-xs text-[#A89D8F]">
                 <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>Updated {goldRates.lastUpdated}</span>
+                <span>{goldRates.lastUpdated}</span>
               </div>
+
+              <button
+                onClick={() => {
+                  setIsSyncing(true);
+                  syncLiveDailyRates();
+                  setTimeout(() => setIsSyncing(false), 700);
+                }}
+                title="Fetch today's official IBJA live bullion rates"
+                className="inline-flex items-center gap-1.5 bg-[#1F1710] hover:bg-[#2A2016] text-[#D4AF37] border border-[#5E4A28] text-xs font-semibold px-2.5 py-1.5 rounded-xs uppercase tracking-wider transition-colors cursor-pointer"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin text-emerald-400' : ''}`} />
+                <span>{isSyncing ? 'Syncing Live...' : 'Daily Live Sync'}</span>
+              </button>
 
               <button
                 onClick={() => setIsCalculatorOpen(true)}

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import {
   Search,
   Filter,
@@ -588,22 +588,23 @@ export const Catalog: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-4">
-              <GoldButton
-                variant="primary"
-                size="md"
-                onClick={() => setIsViewingModalOpen(true)}
-                icon={<Calendar className="w-4 h-4" />}
-              >
-                Book Studio Appointment
-              </GoldButton>
+              <Link to="/custom-bridal">
+                <GoldButton
+                  variant="primary"
+                  size="md"
+                  icon={<Sparkles className="w-4 h-4" />}
+                >
+                  Upload Your Design & Get 3D Quote
+                </GoldButton>
+              </Link>
 
-              <a href="tel:+919542979999">
+              <a href="tel:+919989171916">
                 <GoldButton
                   variant="outline"
                   size="md"
                   icon={<Phone className="w-4 h-4" />}
                 >
-                  Call Master Craftsman
+                  Call Karigar (+91 99891 71916)
                 </GoldButton>
               </a>
             </div>

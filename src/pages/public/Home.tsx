@@ -601,14 +601,14 @@ export const Home: React.FC = () => {
 
                 <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#261E15]">
                   <a
-                    href="tel:+919886067890"
+                    href="tel:+919989171916"
                     className="inline-flex items-center gap-1.5 bg-[#1F1710] hover:bg-[#2A2117] text-[#E5B544] border border-[#4A3B24] px-3.5 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>+91 98860 67890</span>
+                    <span>+91 99891 71916</span>
                   </a>
                   <a
-                    href="https://wa.me/919886067890"
+                    href="https://wa.me/919989171916"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 bg-[#1F1710] hover:bg-[#2A2117] text-emerald-400 border border-[#2E4A28] px-3.5 py-2 rounded-xs text-xs font-semibold uppercase tracking-wider transition-colors"

@@ -178,6 +178,30 @@ export const AdminEnquiries: React.FC = () => {
                     <span>{enq.showroomLocation}</span>
                   </div>
 
+                  {enq.customDesignImage && (
+                    <div className="flex items-center gap-3 bg-[#120E0B] p-2.5 rounded-xs border border-[#42311C]">
+                      <img
+                        src={enq.customDesignImage}
+                        alt="Custom design uploaded by user"
+                        className="w-16 h-16 object-cover rounded-xs border border-[#5E4A28] shrink-0 cursor-pointer hover:scale-105 transition-transform"
+                        onClick={() => window.open(enq.customDesignImage, '_blank')}
+                      />
+                      <div className="text-[11px] space-y-0.5">
+                        <span className="font-bold text-[#E5B544] block">User Uploaded Reference Design</span>
+                        {enq.customWeightGrams && (
+                          <span className="text-[#A89D8F] block">
+                            Target Weight: <strong className="text-[#FBF7F0]">{enq.customWeightGrams}g</strong> ({enq.customPurity || '22K'})
+                          </span>
+                        )}
+                        {enq.estimatedBudget && (
+                          <span className="text-emerald-400 font-semibold block">
+                            Live Est. Quote: {enq.estimatedBudget}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
                   {enq.notes && (
                     <p className="pt-1 border-t border-[#231A12] text-[#B3A696] text-[11px] leading-relaxed italic">
                       "{enq.notes}"

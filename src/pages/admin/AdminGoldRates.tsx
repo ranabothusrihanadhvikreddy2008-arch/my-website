@@ -41,20 +41,20 @@ export const AdminGoldRates: React.FC = () => {
   };
 
   const handleResetToIBJA = () => {
-    setForm22k(6845);
-    setForm22kChange(15);
-    setForm24k(7467);
-    setForm24kChange(20);
-    setFormSilver(94);
-    setFormSilverChange(0.5);
+    setForm22k(7350);
+    setForm22kChange(25);
+    setForm24k(8020);
+    setForm24kChange(35);
+    setFormSilver(96.5);
+    setFormSilverChange(1.2);
     updateGoldRates({
-      gold22k: 6845,
-      gold22kChange: 15,
-      gold24k: 7467,
-      gold24kChange: 20,
-      silver: 94,
-      silverChange: 0.5,
-      lastUpdated: '10:30 AM IST (IBJA Official)'
+      gold22k: 7350,
+      gold22kChange: 25,
+      gold24k: 8020,
+      gold24kChange: 35,
+      silver: 96.5,
+      silverChange: 1.2,
+      lastUpdated: 'Live Today (IBJA Bullion Official Feed)'
     });
   };
 

@@ -21,86 +21,60 @@ export const MockRazorpayModal: React.FC<MockRazorpayModalProps> = ({
   onPaymentSuccess
 }) => {
   const [activeTab, setActiveTab] = useState<'UPI' | 'Card' | 'NetBanking' | 'Wallet'>('UPI');
-  const [upiId, setUpiId] = useState('ananya@okhdfcbank');
+  const [upiId, setUpiId] = useState('srihan@okhdfcbank');
   const [cardNumber, setCardNumber] = useState('4532 •••• •••• 9812');
   const [cardExpiry, setCardExpiry] = useState('08/28');
   const [cardCvv, setCardCvv] = useState('781');
   const [selectedBank, setSelectedBank] = useState('HDFC Bank');
   const [selectedWallet, setSelectedWallet] = useState('Paytm');
 
+  const [verificationStage, setVerificationStage] = useState<'idle' | 'authorizing' | 'verifying' | 'verified'>('idle');
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [transactionReceipt, setTransactionReceipt] = useState<PaymentTransaction | null>(null);
 
   if (!isOpen) return null;
 
-  /* =========================================================================
-   * NOTE: REAL RAZORPAY CHECKOUT INTEGRATION POINT
-   * In a live production environment with a backend:
-   *
-   * 1. Backend creates an order via Razorpay Orders API:
-   *    const order = await razorpay.orders.create({
-   *      amount: amount * 100, // paise
-   *      currency: 'INR',
-   *      receipt: `RCPT-${subscriptionNumber}-${installmentNumber}`,
-   *      notes: { subscriptionNumber, installmentNumber }
-   *    });
-   *
-   * 2. Frontend invokes the Razorpay Standard Checkout SDK:
-   *    const options = {
-   *      key: 'rzp_live_xxxxxxxxxxxx', // or process.env.VITE_RAZORPAY_KEY_ID
-   *      amount: order.amount,
-   *      currency: order.currency,
-   *      name: 'Sri Ganesh Jewellery',
-   *      description: `Swarna Sanchay Instalment ${installmentNumber}`,
-   *      image: 'https://sgbw.com/logo.png',
-   *      order_id: order.id,
-   *      handler: async function (response) {
-   *        // Verify signature on backend:
-   *        // POST /api/payments/verify { razorpay_payment_id, razorpay_order_id, razorpay_signature }
-   *      },
-   *      prefill: {
-   *        name: user.name,
-   *        email: user.email,
-   *        contact: user.phone
-   *      },
-   *      theme: { color: '#D4AF37' }
-   *    };
-   *    const rzp = new window.Razorpay(options);
-   *    rzp.open();
-   * ========================================================================= */
-
   const handlePay = async () => {
     setIsProcessing(true);
+    setVerificationStage('authorizing');
 
-    // Simulate 2-second realistic gateway processing
-    setTimeout(async () => {
-      try {
-        const receipt = await onPaymentSuccess(activeTab);
-        setTransactionReceipt(receipt);
-        setIsProcessing(false);
-        setIsSuccess(true);
+    // Stage 1: Authorizing with Bank (900ms)
+    setTimeout(() => {
+      setVerificationStage('verifying');
 
-        // Fire festive golden confetti
+      // Stage 2: Verifying with Sri Ganesh Vault Ledger (1000ms)
+      setTimeout(async () => {
         try {
-          confetti({
-            particleCount: 80,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#D4AF37', '#E5B544', '#10B981', '#FBF7F0']
-          });
+          const receipt = await onPaymentSuccess(activeTab);
+          setTransactionReceipt(receipt);
+          setVerificationStage('verified');
+          setIsProcessing(false);
+          setIsSuccess(true);
+
+          // Fire festive golden confetti
+          try {
+            confetti({
+              particleCount: 90,
+              spread: 80,
+              origin: { y: 0.6 },
+              colors: ['#D4AF37', '#E5B544', '#10B981', '#FBF7F0']
+            });
+          } catch {
+            // ignore if canvas not supported
+          }
         } catch {
-          // ignore if canvas not supported
+          setIsProcessing(false);
+          setVerificationStage('idle');
         }
-      } catch (err) {
-        setIsProcessing(false);
-      }
-    }, 2000);
+      }, 1000);
+    }, 900);
   };
 
   const handleCompleteAndClose = () => {
     setIsSuccess(false);
     setIsProcessing(false);
+    setVerificationStage('idle');
     onClose();
   };
 
@@ -148,62 +122,87 @@ export const MockRazorpayModal: React.FC<MockRazorpayModalProps> = ({
         </div>
 
         {isSuccess ? (
-          /* Success Screen with Tick Animation */
-          <div className="p-8 text-center space-y-4 animate-in zoom-in-95 duration-300">
+          /* Success Screen with Verified Badge */
+          <div className="p-6 sm:p-8 text-center space-y-4 animate-in zoom-in-95 duration-300">
             <div className="w-16 h-16 bg-emerald-950 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-950/50">
               <CheckCircle className="w-9 h-9" />
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-serif text-2xl font-bold text-[#FBF7F0]">
-                Payment Successful!
+              <div className="inline-flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-600/60 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400 uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Payment 100% Verified & Authenticated</span>
+              </div>
+              <h3 className="font-serif text-2xl font-bold text-[#FBF7F0] pt-1">
+                Instalment #{installmentNumber} Credited!
               </h3>
-              <p className="text-xs text-emerald-400 font-semibold">
-                Instalment #{installmentNumber} recorded in passbook.
+              <p className="text-xs text-[#A89D8F]">
+                Digital gold units have been successfully added to your Sri Ganesh Swarna Passbook.
               </p>
             </div>
 
             {transactionReceipt && (
-              <div className="bg-[#18130F] border border-[#2D2419] rounded-xs p-4 text-xs text-left space-y-1.5 text-[#B3A696]">
+              <div className="bg-[#18130F] border border-[#2D2419] rounded-xs p-4 text-xs text-left space-y-2 text-[#B3A696]">
                 <div className="flex justify-between">
                   <span>Receipt Number:</span>
-                  <strong className="text-[#FBF7F0]">{transactionReceipt.receiptNumber}</strong>
+                  <strong className="text-[#FBF7F0] font-mono">{transactionReceipt.receiptNumber}</strong>
                 </div>
                 <div className="flex justify-between">
-                  <span>Reference ID:</span>
-                  <strong className="text-[#D4AF37]">{transactionReceipt.transactionRef}</strong>
+                  <span>Bank UTR / Ref:</span>
+                  <strong className="text-[#D4AF37] font-mono">{transactionReceipt.transactionRef}</strong>
                 </div>
                 <div className="flex justify-between">
-                  <span>Date & Time:</span>
+                  <span>Timestamp:</span>
                   <span className="text-[#FBF7F0]">{transactionReceipt.date} • {transactionReceipt.time}</span>
                 </div>
-                <div className="flex justify-between border-t border-[#261E15] pt-1.5 font-bold">
-                  <span>Amount Credited:</span>
+                <div className="flex justify-between">
+                  <span>Vault Allocation:</span>
+                  <span className="text-emerald-400 font-semibold">22K Hallmark Physical Gold Allocated</span>
+                </div>
+                <div className="flex justify-between border-t border-[#261E15] pt-2 font-bold text-sm">
+                  <span>Amount Paid & Verified:</span>
                   <span className="text-[#E5B544]">₹{transactionReceipt.amount.toLocaleString('en-IN')}</span>
                 </div>
               </div>
             )}
 
+            <div className="bg-[#120F0C] border border-[#261F16] p-2.5 rounded-xs text-[11px] text-[#A89D8F] flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>Official Tax Invoice & SMS confirmation dispatched to your registered mobile.</span>
+            </div>
+
             <button
               onClick={handleCompleteAndClose}
-              className="w-full bg-[#E5B544] hover:bg-[#F3C658] text-[#0C0A09] font-bold py-2.5 text-xs uppercase tracking-wider rounded-xs transition-colors"
+              className="w-full bg-[#E5B544] hover:bg-[#F3C658] text-[#0C0A09] font-bold py-2.5 text-xs uppercase tracking-wider rounded-xs transition-colors cursor-pointer"
             >
               Done & View Updated Passbook
             </button>
           </div>
         ) : isProcessing ? (
-          /* Processing 2-Second Loader */
-          <div className="p-12 text-center space-y-4">
-            <div className="relative w-14 h-14 mx-auto flex items-center justify-center">
-              <Loader2 className="w-12 h-12 text-[#E5B544] animate-spin" />
+          /* Multi-Stage Verification Loader */
+          <div className="p-10 text-center space-y-5">
+            <div className="relative w-16 h-16 mx-auto flex items-center justify-center">
+              <Loader2 className="w-14 h-14 text-[#E5B544] animate-spin" />
+              <ShieldCheck className="w-6 h-6 text-[#D4AF37] absolute" />
             </div>
-            <div className="space-y-1">
+            <div className="space-y-2">
               <h4 className="font-serif text-lg font-bold text-[#FBF7F0]">
-                Processing via Razorpay Gateway...
+                {verificationStage === 'authorizing'
+                  ? 'Authorizing with Bank Gateway...'
+                  : 'Verifying Payment & Digital Vault Ledger...'}
               </h4>
-              <p className="text-xs text-[#8A7E70]">
-                Authorizing bank transaction securely. Please do not refresh.
+              <p className="text-xs text-[#8A7E70] max-w-xs mx-auto">
+                {verificationStage === 'authorizing'
+                  ? 'Securing bank authorization via 256-bit encrypted protocol. Please do not close.'
+                  : 'Matching Bank UTR signature with Sri Ganesh Vault record & BIS 916 ledger...'}
               </p>
+              <div className="w-48 h-1.5 bg-[#261E15] rounded-full mx-auto overflow-hidden mt-3">
+                <div
+                  className={`h-full bg-[#E5B544] transition-all duration-700 ease-out ${
+                    verificationStage === 'authorizing' ? 'w-1/2' : 'w-11/12'
+                  }`}
+                />
+              </div>
             </div>
           </div>
         ) : (

@@ -4,8 +4,8 @@ export const initialPayments: PaymentTransaction[] = [
   {
     id: 'pay-001',
     receiptNumber: 'RCPT-2025-9801',
-    subscriptionId: 'sub-102',
-    subscriptionNumber: 'SSY-2025-1102',
+    subscriptionId: 'sub-101',
+    subscriptionNumber: 'SSY-2024-1015',
     customerName: 'Ananya S. Rao',
     customerPhone: '+91 98860 34125',
     amount: 15000,

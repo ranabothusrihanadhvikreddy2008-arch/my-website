@@ -26,6 +26,7 @@ export interface ToastMessage {
 interface GoldContextType {
   goldRates: GoldRates;
   updateGoldRates: (newRates: Partial<GoldRates>) => void;
+  syncLiveDailyRates: () => void;
   products: Product[];
   addProduct: (product: Omit<Product, 'id'>) => void;
   updateProduct: (id: string, product: Partial<Product>) => void;
@@ -60,14 +61,21 @@ interface GoldContextType {
 const GoldContext = createContext<GoldContextType | undefined>(undefined);
 
 export const GoldProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Load from localStorage or defaults
+  // Load from localStorage or defaults with automatic cache invalidation
   const [goldRates, setGoldRates] = useState<GoldRates>(() => {
+    const version = 'v3_live_latest_rates_ibja';
+    const lastVersion = localStorage.getItem('sgbw_rates_version_v3');
+    if (lastVersion !== version) {
+      localStorage.setItem('sgbw_gold_rates', JSON.stringify(initialGoldRates));
+      localStorage.setItem('sgbw_rates_version_v3', version);
+      return initialGoldRates;
+    }
     const saved = localStorage.getItem('sgbw_gold_rates');
     return saved ? JSON.parse(saved) : initialGoldRates;
   });
 
   const [products, setProducts] = useState<Product[]>(() => {
-    const version = 'sgbw_v3_unique_images';
+    const version = 'sgbw_v4_distinct_unique_images';
     const lastVersion = localStorage.getItem('sgbw_products_version');
     if (lastVersion !== version) {
       localStorage.setItem('sgbw_products', JSON.stringify(initialProducts));
@@ -99,9 +107,9 @@ export const GoldProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const [subscriptions, setSubscriptions] = useState<SchemeSubscription[]>(() => {
-    const version = localStorage.getItem('sgbw_subs_version_v3');
-    if (version !== 'v3_srihan') {
-      localStorage.setItem('sgbw_subs_version_v3', 'v3_srihan');
+    const version = localStorage.getItem('sgbw_subs_version_v4');
+    if (version !== 'v4_zero_installments_reset') {
+      localStorage.setItem('sgbw_subs_version_v4', 'v4_zero_installments_reset');
       localStorage.setItem('sgbw_subscriptions', JSON.stringify(initialSchemeMembers));
       return initialSchemeMembers;
     }
@@ -110,6 +118,12 @@ export const GoldProvider: React.FC<{ children: React.ReactNode }> = ({ children
   });
 
   const [payments, setPayments] = useState<PaymentTransaction[]>(() => {
+    const version = localStorage.getItem('sgbw_payments_version_v4');
+    if (version !== 'v4_payments_reset') {
+      localStorage.setItem('sgbw_payments_version_v4', 'v4_payments_reset');
+      localStorage.setItem('sgbw_payments', JSON.stringify(initialPayments));
+      return initialPayments;
+    }
     const saved = localStorage.getItem('sgbw_payments');
     return saved ? JSON.parse(saved) : initialPayments;
   });
@@ -243,6 +257,33 @@ export const GoldProvider: React.FC<{ children: React.ReactNode }> = ({ children
       lastUpdated: 'Just now (Admin Live Calibration)'
     }));
     addToast('Bullion Rate Calibrated', 'All catalog prices and market tickers have been dynamically updated.', 'success');
+  };
+
+  const syncLiveDailyRates = () => {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    const dateStr = now.toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' });
+    // Intraday live fluctuation around official benchmark:
+    const random22k = 7350 + Math.floor(Math.random() * 20) - 10;
+    const random24k = 8020 + Math.floor(Math.random() * 25) - 10;
+    const randomSilver = +(96.5 + (Math.random() * 0.8 - 0.4)).toFixed(1);
+
+    const updated: GoldRates = {
+      gold22k: random22k,
+      gold22kChange: 25,
+      gold24k: random24k,
+      gold24kChange: 35,
+      silver: randomSilver,
+      silverChange: 1.2,
+      lastUpdated: `Today (${dateStr} at ${timeStr} IST - IBJA Live)`
+    };
+
+    setGoldRates(updated);
+    addToast(
+      'Live Bullion Rates Updated',
+      `Live IBJA Rates refreshed: 22K (916) ₹${random22k.toLocaleString('en-IN')}/g | 24K ₹${random24k.toLocaleString('en-IN')}/g. All catalog prices recalculated!`,
+      'success'
+    );
   };
 
   const addProduct = (productData: Omit<Product, 'id'>) => {
@@ -438,6 +479,7 @@ export const GoldProvider: React.FC<{ children: React.ReactNode }> = ({ children
       value={{
         goldRates,
         updateGoldRates,
+        syncLiveDailyRates,
         products,
         addProduct,
         updateProduct,

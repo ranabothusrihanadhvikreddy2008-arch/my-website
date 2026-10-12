@@ -11,7 +11,11 @@ import {
   Download,
   CheckCircle,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Clock,
+  AlertCircle,
+  Upload,
+  Image as ImageIcon
 } from 'lucide-react';
 import { useGold } from '../../context/GoldContext';
 import { useAuth } from '../../context/AuthContext';
@@ -22,7 +26,7 @@ import { PaymentTransaction, SchemeSubscription } from '../../data/types';
 
 export const CustomerDashboard: React.FC = () => {
   const { user } = useAuth();
-  const { subscriptions, payments, payInstallment, addSubscription, schemePlans } = useGold();
+  const { subscriptions, payments, payInstallment, addSubscription, schemePlans, enquiries } = useGold();
 
   // Find user's subscriptions or fallback to the first active subscription for demonstration
   const userSubs = subscriptions.filter((s) => s.userId === user?.id || s.userName.toLowerCase().includes('srihan') || s.userName === user?.name);
@@ -286,6 +290,97 @@ export const CustomerDashboard: React.FC = () => {
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* My Custom Designs & Uploads Section */}
+      <div className="bg-[#14100D] border border-[#2D2419] rounded-sm p-6 space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#261E15]">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+            <h3 className="font-serif text-base font-bold text-[#FBF7F0] uppercase tracking-wider">
+              My Custom Designs & Uploads
+            </h3>
+          </div>
+
+          <Link to="/custom-bridal">
+            <GoldButton variant="outline" size="sm" icon={<Upload className="w-3.5 h-3.5" />}>
+              Upload New Custom Design
+            </GoldButton>
+          </Link>
+        </div>
+
+        {enquiries.filter(e => e.type === 'CUSTOM_DESIGN' || e.customerName.toLowerCase().includes('srihan') || e.phone.includes('99891')).length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {enquiries
+              .filter(e => e.type === 'CUSTOM_DESIGN' || e.customerName.toLowerCase().includes('srihan') || e.phone.includes('99891'))
+              .map((des) => (
+                <div
+                  key={des.id}
+                  className="bg-[#18130F] border border-[#302619] rounded-sm p-4 flex gap-4 items-start hover:border-[#6E5325] transition-colors"
+                >
+                  {des.customDesignImage ? (
+                    <img
+                      src={des.customDesignImage}
+                      alt={des.productName || 'Custom Design'}
+                      className="w-20 h-20 object-cover rounded-sm border border-[#4D3A1F] shrink-0"
+                    />
+                  ) : (
+                    <div className="w-20 h-20 bg-[#120E0B] rounded-sm border border-[#352718] flex items-center justify-center text-[#5E4A28] shrink-0">
+                      <ImageIcon className="w-7 h-7" />
+                    </div>
+                  )}
+                  <div className="space-y-1.5 flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="font-serif text-sm font-bold text-[#FBF7F0] truncate">
+                        {des.productName || des.customCategory || 'Custom Bespoke Ornament'}
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-xs uppercase bg-emerald-950 text-emerald-400 border border-emerald-800 shrink-0">
+                        CAD REVIEW
+                      </span>
+                    </div>
+
+                    <div className="text-xs text-[#A89D8F] flex flex-wrap gap-x-3 gap-y-1">
+                      {des.customWeightGrams && (
+                        <span>Weight: <strong className="text-[#FBF7F0]">{des.customWeightGrams}g</strong></span>
+                      )}
+                      {des.customPurity && (
+                        <span>Purity: <strong className="text-[#FBF7F0]">{des.customPurity}</strong></span>
+                      )}
+                      {des.estimatedBudget && (
+                        <span>Quote: <strong className="text-[#E5B544]">{des.estimatedBudget}</strong></span>
+                      )}
+                    </div>
+
+                    {des.notes && (
+                      <p className="text-[11px] text-[#8A7E70] line-clamp-1 italic">
+                        "{des.notes}"
+                      </p>
+                    )}
+
+                    <div className="pt-1 flex items-center justify-between text-[10px] text-[#6E6050]">
+                      <span>Atelier: {des.showroomLocation.split(' ')[0]}</span>
+                      <span>Date: {des.date}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        ) : (
+          <div className="text-center py-8 space-y-3 bg-[#110D0A] rounded-sm border border-dashed border-[#2D2316]">
+            <ImageIcon className="w-10 h-10 text-[#5E4A28] mx-auto" />
+            <div>
+              <h4 className="text-sm font-serif font-bold text-[#FBF7F0]">No custom jewellery designs uploaded yet</h4>
+              <p className="text-xs text-[#8A7E70] max-w-md mx-auto mt-1">
+                Upload sketches, Pinterest references, or heirloom photos. Our Telangana master karigars will build you a 3D CAD blueprint with transparent live gold pricing.
+              </p>
+            </div>
+            <Link to="/custom-bridal">
+              <GoldButton variant="primary" size="sm" icon={<Upload className="w-3.5 h-3.5" />}>
+                Upload Custom Jewellery Design Now
+              </GoldButton>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Mock Razorpay Checkout Modal */}

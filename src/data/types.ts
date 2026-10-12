@@ -97,6 +97,13 @@ export interface Enquiry {
   notes?: string;
   date: string;
   status: 'New' | 'Contacted' | 'Converted' | 'Closed';
+  type?: 'SHOWROOM_VIEWING' | 'CUSTOM_DESIGN' | 'PRICE_QUERY';
+  customDesignImage?: string;
+  customCategory?: string;
+  customPurity?: string;
+  customWeightGrams?: number;
+  customGemstones?: string;
+  estimatedBudget?: string;
 }
 
 export interface NotificationItem {

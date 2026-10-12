@@ -118,10 +118,10 @@ export const Footer: React.FC = () => {
                 112, Jewellers Lane, Shivajinagar 560001
               </p>
               <a
-                href="tel:+919886067890"
+                href="tel:+919989171916"
                 className="text-[#D4AF37] hover:underline block text-xs font-semibold"
               >
-                +91 98860 67890
+                +91 99891 71916
               </a>
             </div>
 
