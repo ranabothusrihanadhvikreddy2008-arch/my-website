@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   ShieldCheck,
@@ -14,6 +14,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { useGold } from '../../context/GoldContext';
+import { useAuth } from '../../context/AuthContext';
 import { GoldButton } from '../../components/common/GoldButton';
 import { ProductCard } from '../../components/common/ProductCard';
 
@@ -23,11 +24,21 @@ export const ProductDetail: React.FC = () => {
   const { products, goldRates, calculateProductPrice, addEnquiry } = useGold();
 
   const product = products.find((p) => p.id === id) || products[0];
+  const { user } = useAuth();
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [isCallbackModalOpen, setIsCallbackModalOpen] = useState(false);
   const [callbackName, setCallbackName] = useState('');
   const [callbackPhone, setCallbackPhone] = useState('');
+  const [callbackEmail, setCallbackEmail] = useState('');
   const [callbackSubmitted, setCallbackSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (user && isCallbackModalOpen) {
+      setCallbackName((prev) => prev || user.name);
+      setCallbackPhone((prev) => prev || user.phone);
+      setCallbackEmail((prev) => prev || user.email);
+    }
+  }, [user, isCallbackModalOpen]);
 
   const priceBreakup = calculateProductPrice(product);
   const ratePerGram = product.purity === '24K' ? goldRates.gold24k : goldRates.gold22k;
@@ -45,18 +56,22 @@ export const ProductDetail: React.FC = () => {
     addEnquiry({
       customerName: callbackName,
       phone: callbackPhone,
+      email: callbackEmail || user?.email,
       productName: product.name,
       showroomLocation: 'Hyderabad Flagship (Pot Market)',
       occasion: `Immediate Product Inquiry for ${product.name}`,
-      notes: `Requested priority callback for ${product.name} (${product.grossWeight}g)`
+      notes: `Requested priority callback for ${product.name} (${product.grossWeight}g). Email dispatch to: ${callbackEmail || user?.email || 'N/A'}`
     });
     setCallbackSubmitted(true);
     setTimeout(() => {
       setCallbackSubmitted(false);
       setIsCallbackModalOpen(false);
-      setCallbackName('');
-      setCallbackPhone('');
-    }, 2000);
+      if (!user) {
+        setCallbackName('');
+        setCallbackPhone('');
+        setCallbackEmail('');
+      }
+    }, 2500);
   };
 
   return (
@@ -311,7 +326,7 @@ export const ProductDetail: React.FC = () => {
                   Callback Requested!
                 </h3>
                 <p className="text-xs text-[#A89D8F]">
-                  Our master karigar will call you on {callbackPhone} regarding {product.name}.
+                  Our master karigar will call you on {callbackPhone} regarding {product.name}. An official inquiry summary and price quote have been sent directly to {callbackEmail || user?.email || 'your email'}.
                 </p>
               </div>
             ) : (
@@ -319,14 +334,27 @@ export const ProductDetail: React.FC = () => {
                 <h3 className="font-serif text-xl font-bold text-[#FBF7F0] mb-1">
                   Request Priority Callback
                 </h3>
-                <p className="text-xs text-[#9E9080] mb-4">
+                <p className="text-xs text-[#9E9080] mb-3">
                   For: <strong className="text-[#E5B544]">{product.name}</strong> ({product.grossWeight}g)
                 </p>
+
+                {/* Direct Email Delivery Notice */}
+                {user ? (
+                  <div className="mb-3.5 p-2 bg-emerald-950/40 border border-emerald-800/80 rounded-xs text-[11px] text-emerald-300 flex items-center gap-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>Signed in as <strong>{user.email}</strong>. Quotation and Karigar notes will be sent directly to your email.</span>
+                  </div>
+                ) : (
+                  <div className="mb-3.5 p-2 bg-[#1C1610] border border-[#6E5325] rounded-xs text-[11px] text-[#C5B8A8] flex items-center justify-between gap-2">
+                    <span>Sign in or enter email below so order estimates reach your email directly.</span>
+                    <Link to="/login" className="text-[10px] text-[#E5B544] font-bold uppercase hover:underline shrink-0">Sign In</Link>
+                  </div>
+                )}
 
                 <form onSubmit={handleCallbackSubmit} className="space-y-3.5">
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#C4B5A5] mb-1">
-                      Your Name
+                      Your Name *
                     </label>
                     <input
                       type="text"
@@ -340,7 +368,7 @@ export const ProductDetail: React.FC = () => {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#C4B5A5] mb-1">
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
@@ -348,6 +376,19 @@ export const ProductDetail: React.FC = () => {
                       placeholder="+91 98XXX XXXXX"
                       value={callbackPhone}
                       onChange={(e) => setCallbackPhone(e.target.value)}
+                      className="w-full bg-[#120F0D] border border-[#3A2E1F] rounded-xs px-3 py-2 text-xs text-[#FBF7F0] focus:outline-none focus:border-[#E5B544]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider text-[#C4B5A5] mb-1">
+                      Email Address (For Direct Invoice Delivery)
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="name@example.com"
+                      value={callbackEmail}
+                      onChange={(e) => setCallbackEmail(e.target.value)}
                       className="w-full bg-[#120F0D] border border-[#3A2E1F] rounded-xs px-3 py-2 text-xs text-[#FBF7F0] focus:outline-none focus:border-[#E5B544]"
                     />
                   </div>

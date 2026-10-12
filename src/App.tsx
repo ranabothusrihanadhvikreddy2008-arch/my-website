@@ -5,6 +5,7 @@ import { Footer } from './components/layout/Footer';
 import { FloatingActions } from './components/common/FloatingActions';
 import { DemoRibbon } from './components/common/DemoRibbon';
 import { ToastContainer } from './components/common/ToastContainer';
+import { PeriodicLoginModal } from './components/common/PeriodicLoginModal';
 
 // Public Pages
 import { Home } from './pages/public/Home';
@@ -68,6 +69,7 @@ export const App: React.FC = () => {
       {/* Demo ribbon always visible at top */}
       <DemoRibbon />
       <ToastContainer />
+      <PeriodicLoginModal />
 
       <Routes>
         {/* Public Website Routes */}

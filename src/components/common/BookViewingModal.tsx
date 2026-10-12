@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { X, Calendar, MapPin, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Calendar, MapPin, Sparkles, Mail, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useGold } from '../../context/GoldContext';
+import { useAuth } from '../../context/AuthContext';
 import { GoldButton } from './GoldButton';
 
 interface BookViewingModalProps {
@@ -17,6 +19,7 @@ export const BookViewingModal: React.FC<BookViewingModalProps> = ({
   defaultOccasion = 'Bridal Wedding Trousseau (Heavy Sets)'
 }) => {
   const { addEnquiry } = useGold();
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     customerName: '',
     phone: '',
@@ -28,6 +31,17 @@ export const BookViewingModal: React.FC<BookViewingModalProps> = ({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (user && isOpen) {
+      setFormData((prev) => ({
+        ...prev,
+        customerName: prev.customerName || user.name,
+        phone: prev.phone || user.phone,
+        email: prev.email || user.email
+      }));
+    }
+  }, [user, isOpen]);
 
   if (!isOpen) return null;
 
@@ -71,7 +85,7 @@ export const BookViewingModal: React.FC<BookViewingModalProps> = ({
               Sanctum Viewing Reserved!
             </h3>
             <p className="text-xs text-[#B3A696] max-w-xs mx-auto">
-              Our Senior Karigar and Flagship Manager have confirmed your slot at {formData.showroomLocation}. A confirmation WhatsApp message has been dispatched.
+              Our Senior Karigar and Flagship Manager have confirmed your slot at {formData.showroomLocation}. A confirmation email and WhatsApp message have been dispatched directly to {formData.email || user?.email || 'your contact'}.
             </p>
           </div>
         ) : (
@@ -88,6 +102,32 @@ export const BookViewingModal: React.FC<BookViewingModalProps> = ({
                 Experience heritage nakshi masterworks in private luxury suites with certified live Karatmeter testing.
               </p>
             </div>
+
+            {/* Email & Login Order Notice */}
+            {user ? (
+              <div className="mb-4 p-2.5 bg-emerald-950/40 border border-emerald-800/80 rounded-xs flex items-center gap-2 text-xs text-emerald-300">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+                <span>
+                  Logged in as <strong>{user.name}</strong> ({user.email}). Viewing confirmation and bullion slip will be sent directly to your email.
+                </span>
+              </div>
+            ) : (
+              <div className="mb-4 p-2.5 bg-[#1C1610] border border-[#6E5325] rounded-xs flex items-start justify-between gap-2 text-xs text-[#C5B8A8]">
+                <div className="flex items-start gap-2">
+                  <Mail className="w-4 h-4 text-[#E5B544] shrink-0 mt-0.5" />
+                  <span>
+                    <strong>Important:</strong> Sign in or enter your email so that booking confirmations, gold invoices, and bullion dispatch updates are sent directly to your email.
+                  </span>
+                </div>
+                <Link
+                  to="/login"
+                  onClick={onClose}
+                  className="text-[10px] bg-[#2E2214] hover:bg-[#E5B544] text-[#E5B544] hover:text-[#0C0A09] font-bold px-2 py-1 rounded-xs border border-[#8A6D3B] uppercase tracking-wider shrink-0 transition-colors"
+                >
+                  Sign In
+                </Link>
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
