@@ -147,7 +147,7 @@ export const Home: React.FC = () => {
                 <div className="relative aspect-[4/3] rounded-xs overflow-hidden bg-[#0C0A09]">
                   <img
                     src="/hero_gold_jewellery.jpg"
-                    alt="Royal Heritage Temple Nakshi Choker & Kada - Sri Ganesh Bangle Works"
+                    alt="Royal Heritage Temple Nakshi Choker & Kada - Sri Ganesh Jewellery"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="eager"
                   />

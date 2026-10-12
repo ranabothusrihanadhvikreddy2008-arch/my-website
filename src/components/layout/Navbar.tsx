@@ -130,7 +130,7 @@ export const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-lg sm:text-xl font-bold tracking-[0.14em] text-[#FBF7F0] group-hover:text-[#E5B544] transition-colors uppercase leading-tight">
-                Sri Ganesh Bangle Works
+                Sri Ganesh Jewellery
               </span>
               <span className="text-[9px] tracking-[0.24em] text-[#C4A052] font-semibold uppercase leading-tight flex items-center gap-1">
                 <span>Tradition Crafted in Gold</span>

@@ -1,7 +1,7 @@
-# SRI GANESH BANGLE WORKS (SGBW)
+# SRI GANESH JEWELLERY
 ### Tradition Crafted in Gold • Purity Certified 916 • Established 1978
 
-A luxury, full-stack prototype website for **Sri Ganesh Bangle Works**, South India's sovereign temple jewellery house with sanctums in Secunderabad/Hyderabad (Pot Market) and Bengaluru (Commercial Street).
+A luxury, full-stack prototype website for **Sri Ganesh Jewellery**, South India's sovereign temple jewellery house with sanctums in Secunderabad/Hyderabad (Pot Market) and Bengaluru (Commercial Street).
 
 Built directly from Google Stitch visual design exports as the **Single Source of Truth** (`screen 1.png` and `screen 2.png`).
 

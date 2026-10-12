@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Brand & Hallmarking */}
           <div className="space-y-4">
             <h3 className="font-serif text-lg font-bold text-[#FBF7F0] tracking-wider uppercase">
-              Sri Ganesh Bangle Works
+              Sri Ganesh Jewellery
             </h3>
             <p className="text-xs text-[#9E9080] leading-relaxed">
               Established in 1978. Four decades of unbroken purity, royal heritage craftsmanship, and certified 916 temple jewellery hallmarked for three generations.
@@ -135,7 +135,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#7A6E60]">
           <div>
-            © 1978–2026 Sri Ganesh Bangle Works Pvt. Ltd. All Rights Reserved. Master Goldsmiths of South India.
+            © 1978–2026 Sri Ganesh Jewellery Pvt. Ltd. All Rights Reserved. Master Goldsmiths of South India.
           </div>
 
           <div className="flex flex-wrap items-center gap-4">

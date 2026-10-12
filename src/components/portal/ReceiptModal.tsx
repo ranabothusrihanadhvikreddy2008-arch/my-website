@@ -49,7 +49,7 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({ isOpen, onClose, pay
             <div className="flex items-center justify-center gap-2">
               <Crown className="w-5 h-5 text-[#9E7B35]" />
               <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-wider uppercase text-[#1C1611]">
-                Sri Ganesh Bangle Works
+                Sri Ganesh Jewellery
               </h2>
             </div>
             <p className="text-[10px] tracking-widest uppercase text-[#736352] font-semibold">

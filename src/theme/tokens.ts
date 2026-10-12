@@ -1,5 +1,5 @@
 /**
- * Design Tokens for SRI GANESH BANGLE WORKS
+ * Design Tokens for SRI GANESH JEWELLERY
  * Extracted directly from Google Stitch designs (screen 1.png & screen 2.png)
  * Single Source of Truth for visual hierarchy, typography, colors, and layout.
  */

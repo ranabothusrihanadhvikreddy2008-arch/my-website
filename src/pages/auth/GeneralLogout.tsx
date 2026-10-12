@@ -28,7 +28,7 @@ export const GeneralLogout: React.FC = () => {
         {/* Header */}
         <div className="space-y-2">
           <span className="text-[10px] font-bold tracking-[0.25em] text-[#E5B544] uppercase block">
-            SRI GANESH BANGLE WORKS
+            SRI GANESH JEWELLERY
           </span>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#FBF7F0]">
             Successfully Signed Out

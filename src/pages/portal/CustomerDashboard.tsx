@@ -149,7 +149,7 @@ export const CustomerDashboard: React.FC = () => {
             <div className="bg-[#120F0D] border border-[#2D2419] p-3 rounded-xs text-xs text-[#C5B8A8] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Gift className="w-4 h-4 text-[#E5B544]" />
-                <span>Promised 12th Month Bonus from SGBW:</span>
+                <span>Promised 12th Month Bonus from Sri Ganesh:</span>
               </div>
               <strong className="text-[#E5B544] font-bold text-sm">
                 + ₹{activeSub?.bonusAmount.toLocaleString('en-IN')} Free
@@ -382,7 +382,7 @@ export const CustomerDashboard: React.FC = () => {
                   <strong className="text-[#FBF7F0]">₹{(joinMonthly * 11).toLocaleString('en-IN')}</strong>
                 </div>
                 <div className="flex justify-between">
-                  <span>12th Month Bonus by SGBW:</span>
+                  <span>12th Month Bonus by Sri Ganesh:</span>
                   <strong className="text-[#E5B544]">+ ₹{joinMonthly.toLocaleString('en-IN')}</strong>
                 </div>
                 <div className="pt-1 border-t border-[#261E15] flex justify-between font-bold">

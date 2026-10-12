@@ -51,7 +51,7 @@ export const MockRazorpayModal: React.FC<MockRazorpayModalProps> = ({
    *      key: 'rzp_live_xxxxxxxxxxxx', // or process.env.VITE_RAZORPAY_KEY_ID
    *      amount: order.amount,
    *      currency: order.currency,
-   *      name: 'Sri Ganesh Bangle Works',
+   *      name: 'Sri Ganesh Jewellery',
    *      description: `Swarna Sanchay Instalment ${installmentNumber}`,
    *      image: 'https://sgbw.com/logo.png',
    *      order_id: order.id,
@@ -116,7 +116,7 @@ export const MockRazorpayModal: React.FC<MockRazorpayModalProps> = ({
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="text-xs font-bold text-[#FBF7F0]">
-                  Sri Ganesh Bangle Works
+                  Sri Ganesh Jewellery
                 </span>
                 <span className="text-[10px] text-emerald-400 font-semibold bg-emerald-950/60 px-1 rounded border border-emerald-800/40">
                   Verified Merchant

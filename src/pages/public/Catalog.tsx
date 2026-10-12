@@ -200,12 +200,12 @@ export const Catalog: React.FC = () => {
     const element = document.createElement('a');
     const file = new Blob(
       [
-        `SRI GANESH BANGLE WORKS - ROYAL JEWELLERY CATALOG\nEstd 1978 • Pot Market Secunderabad & Commercial St Bengaluru\n\nLive 22K Rate: ₹${goldRates.gold22k}/g\nLive 24K Rate: ₹${goldRates.gold24k}/g\n\nTotal Designs in Catalog: ${products.length}\nAll pieces certified BIS 916 Hallmarked with Laser HUID.`
+        `SRI GANESH JEWELLERY - ROYAL JEWELLERY CATALOG\nEstd 1978 • Pot Market Secunderabad & Commercial St Bengaluru\n\nLive 22K Rate: ₹${goldRates.gold22k}/g\nLive 24K Rate: ₹${goldRates.gold24k}/g\n\nTotal Designs in Catalog: ${products.length}\nAll pieces certified BIS 916 Hallmarked with Laser HUID.`
       ],
       { type: 'text/plain' }
     );
     element.href = URL.createObjectURL(file);
-    element.download = 'Sri_Ganesh_Bangle_Works_Catalog_2025.txt';
+    element.download = 'Sri_Ganesh_Jewellery_Catalog_2025.txt';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);

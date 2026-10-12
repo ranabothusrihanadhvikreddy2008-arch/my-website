@@ -9,7 +9,7 @@ export const initialSchemePlans: SchemePlan[] = [
     bonusMonths: 1,
     minMonthlyAmount: 2000,
     maxMonthlyAmount: 50000,
-    description: 'Pay 11 monthly instalments, and Sri Ganesh Bangle Works deposits the 12th month as your loyalty bonus. Plus enjoy 0% making charges (up to 18% value addition) upon maturity!',
+    description: 'Pay 11 monthly instalments, and Sri Ganesh Jewellery deposits the 12th month as your loyalty bonus. Plus enjoy 0% making charges (up to 18% value addition) upon maturity!',
     makingChargesWaivedPercent: 18,
     features: [
       '11 Months Installment + 1 Full Month Bonus by SGBW',
@@ -44,7 +44,7 @@ export const initialSchemePlans: SchemePlan[] = [
 export const schemeFaqs = [
   {
     q: 'How does the 11 + 1 Swarna Sanchay scheme work?',
-    a: 'You pay 11 equal monthly instalments of your chosen amount (₹2,000 to ₹50,000). On the 12th month, Sri Ganesh Bangle Works contributes the full 12th installment as a gift. At the end of 12 months, you redeem jewellery for the total 12-month accumulated value with 0% making charges!'
+    a: 'You pay 11 equal monthly instalments of your chosen amount (₹2,000 to ₹50,000). On the 12th month, Sri Ganesh Jewellery contributes the full 12th installment as a gift. At the end of 12 months, you redeem jewellery for the total 12-month accumulated value with 0% making charges!'
   },
   {
     q: 'Can I redeem in cash or bullion coins?',
@@ -60,6 +60,6 @@ export const schemeFaqs = [
   },
   {
     q: 'Is my gold scheme investment safe and insured?',
-    a: 'Sri Ganesh Bangle Works has operated continuously since 1978. Every rupee deposited is secured against physical certified 916 gold reserves held in bank lockers and audited under BIS hallmarking standards.'
+    a: 'Sri Ganesh Jewellery has operated continuously since 1978. Every rupee deposited is secured against physical certified 916 gold reserves held in bank lockers and audited under BIS hallmarking standards.'
   }
 ];

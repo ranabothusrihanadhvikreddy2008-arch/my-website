@@ -30,7 +30,7 @@ export const DemoRibbon: React.FC = () => {
             Demo – Static Data
           </span>
           <span className="hidden sm:inline text-[#A89D8F]">
-            Interactive prototype for Sri Ganesh Bangle Works.
+            Interactive prototype for Sri Ganesh Jewellery.
           </span>
         </div>
 

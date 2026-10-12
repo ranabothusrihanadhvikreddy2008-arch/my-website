@@ -37,7 +37,7 @@ export const ProductDetail: React.FC = () => {
     .slice(0, 4);
 
   const whatsappMessage = encodeURIComponent(
-    `Namaste Sri Ganesh Bangle Works! I am interested in inquiring about "${product.name}" (${product.purity} ${product.hallmark}, Weight: ${product.grossWeight}g, Approx Price: ₹${priceBreakup.total.toLocaleString('en-IN')}). Please arrange a Karigar consultation.`
+    `Namaste Sri Ganesh Jewellery! I am interested in inquiring about "${product.name}" (${product.purity} ${product.hallmark}, Weight: ${product.grossWeight}g, Approx Price: ₹${priceBreakup.total.toLocaleString('en-IN')}). Please arrange a Karigar consultation.`
   );
 
   const handleCallbackSubmit = (e: React.FormEvent) => {

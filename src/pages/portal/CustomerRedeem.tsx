@@ -59,7 +59,7 @@ export const CustomerRedeem: React.FC = () => {
             </div>
 
             <div className="bg-[#120F0D] border border-[#2B2317] p-3.5 rounded-xs">
-              <span className="text-[#8A7E70] block uppercase text-[10px]">12th Month SGBW Bonus</span>
+              <span className="text-[#8A7E70] block uppercase text-[10px]">12th Month Sri Ganesh Bonus</span>
               <strong className="text-xl font-serif font-bold text-[#E5B544]">
                 + ₹{userSub?.bonusAmount.toLocaleString('en-IN')}
               </strong>

@@ -37,7 +37,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     : '';
 
   const whatsappMessage = encodeURIComponent(
-    `Namaste Sri Ganesh Bangle Works! I am interested in inquiring about "${product.name}" (${product.purity} ${product.hallmark}, Approx. Wt: ${product.grossWeight}g). Please share price quote and customization details.`
+    `Namaste Sri Ganesh Jewellery! I am interested in inquiring about "${product.name}" (${product.purity} ${product.hallmark}, Approx. Wt: ${product.grossWeight}g). Please share price quote and customization details.`
   );
 
   return (

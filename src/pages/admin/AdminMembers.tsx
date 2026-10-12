@@ -64,7 +64,7 @@ export const AdminMembers: React.FC = () => {
   const handleSendReminder = (sub: SchemeSubscription) => {
     const cleanPhone = sub.userPhone.replace(/\D/g, '');
     const msg = encodeURIComponent(
-      `Namaste ${sub.userName}! This is a gentle reminder from Sri Ganesh Bangle Works regarding your Swarna Sanchay Scheme account ${sub.subscriptionNumber}. Your monthly instalment of ₹${sub.monthlyAmount.toLocaleString('en-IN')} (Month #${sub.installmentsPaid + 1}) is due on ${sub.nextDueDate}. You can pay online via UPI or visit our Pot Market atelier.`
+      `Namaste ${sub.userName}! This is a gentle reminder from Sri Ganesh Jewellery regarding your Swarna Sanchay Scheme account ${sub.subscriptionNumber}. Your monthly instalment of ₹${sub.monthlyAmount.toLocaleString('en-IN')} (Month #${sub.installmentsPaid + 1}) is due on ${sub.nextDueDate}. You can pay online via UPI or visit our Pot Market atelier.`
     );
     window.open(`https://wa.me/${cleanPhone}?text=${msg}`, '_blank');
   };

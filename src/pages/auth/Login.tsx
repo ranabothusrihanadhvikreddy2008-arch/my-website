@@ -191,7 +191,7 @@ export const Login: React.FC = () => {
         <div className="text-center space-y-2">
           <Link to="/home" className="inline-block group">
             <span className="text-[10px] font-bold tracking-[0.25em] text-[#E5B544] uppercase block group-hover:text-[#F3C658] transition-colors">
-              SRI GANESH BANGLE WORKS • ESTD 1978
+              SRI GANESH JEWELLERY • ESTD 1978
             </span>
           </Link>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#FBF7F0]">
@@ -511,7 +511,7 @@ export const Login: React.FC = () => {
           /* TAB 3: REGISTRATION FORM */
           <form onSubmit={handleRegisterSubmit} className="space-y-3.5 animate-in fade-in duration-200">
             <div className="p-2.5 bg-[#1C1610] border border-[#6E5325] rounded-xs text-[11px] text-[#C4B5A5]">
-              Register your email with Sri Ganesh Bangle Works to activate your digital gold passbook and start tracking Swarna Sanchay schemes.
+              Register your email with Sri Ganesh Jewellery to activate your digital gold passbook and start tracking Swarna Sanchay schemes.
             </div>
 
             <div>

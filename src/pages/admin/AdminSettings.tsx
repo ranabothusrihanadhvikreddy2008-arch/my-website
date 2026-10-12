@@ -22,7 +22,7 @@ export const AdminSettings: React.FC = () => {
     return saved
       ? JSON.parse(saved)
       : {
-        storeName: 'Sri Ganesh Bangle Works',
+        storeName: 'Sri Ganesh Jewellery',
         tagline: 'Tradition Crafted in Gold • Purity Certified 916',
         foundedYear: '1978',
         bisRegistration: 'BIS-HYD-916-449102',

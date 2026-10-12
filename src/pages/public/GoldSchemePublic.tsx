@@ -49,7 +49,7 @@ export const GoldSchemePublic: React.FC = () => {
           </h1>
 
           <p className="text-sm sm:text-base text-[#C5B8A8] leading-relaxed">
-            South India’s most trusted systematic gold accumulation plan. Steady monthly deposits backed by physical BIS 916 hallmarked reserves, zero making charges on maturity, and a guaranteed 100% bonus month by Sri Ganesh Bangle Works.
+            South India’s most trusted systematic gold accumulation plan. Steady monthly deposits backed by physical BIS 916 hallmarked reserves, zero making charges on maturity, and a guaranteed 100% bonus month by Sri Ganesh Jewellery.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
@@ -59,7 +59,7 @@ export const GoldSchemePublic: React.FC = () => {
               </GoldButton>
             </Link>
             <a
-              href="https://wa.me/919542979999?text=Hello%20SGBW,%20please%20send%20me%20details%20on%20Swarna%20Sanchay%20Gold%20Scheme."
+              href="https://wa.me/919542979999?text=Hello%20Sri%20Ganesh%20Jewellery,%20please%20send%20me%20details%20on%20Swarna%20Sanchay%20Gold%20Scheme."
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -122,7 +122,7 @@ export const GoldSchemePublic: React.FC = () => {
               <div className="space-y-2 pt-2">
                 {[
                   'You pay 11 monthly installments on or before your due date',
-                  'Sri Ganesh Bangle Works pays your 12th installment in full',
+                  'Sri Ganesh Jewellery pays your 12th installment in full',
                   'Zero making charges (up to 18% VA) waived upon maturity',
                   'Redeem against any 22K hallmarked necklace, kada, choker, or bangle'
                 ].map((item, idx) => (
@@ -141,7 +141,7 @@ export const GoldSchemePublic: React.FC = () => {
                   Maturity Benefit Statement
                 </h4>
                 <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded-xs border border-emerald-800">
-                  11 + 1 SGBW Plan
+                  11 + 1 Sri Ganesh Plan
                 </span>
               </div>
 
@@ -156,7 +156,7 @@ export const GoldSchemePublic: React.FC = () => {
                 <div className="flex justify-between py-1 border-t border-[#211A12]">
                   <span className="flex items-center gap-1.5">
                     <Gift className="w-3.5 h-3.5 text-[#E5B544]" />
-                    <span>12th Month Bonus from SGBW:</span>
+                    <span>12th Month Bonus from Sri Ganesh:</span>
                   </span>
                   <strong className="text-[#E5B544] font-semibold text-sm">
                     + ₹{free12thBonus.toLocaleString('en-IN')}

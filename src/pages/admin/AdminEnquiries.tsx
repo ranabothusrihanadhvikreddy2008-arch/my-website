@@ -43,7 +43,7 @@ export const AdminEnquiries: React.FC = () => {
   const handleWhatsAppReply = (enq: Enquiry) => {
     const cleanPhone = enq.phone.replace(/\D/g, '');
     const msg = encodeURIComponent(
-      `Namaste ${enq.customerName}! Thank you for contacting Sri Ganesh Bangle Works regarding "${enq.productName || 'our Royal Temple Jewellery collection'}". Our Master Goldsmith at ${enq.showroomLocation} is pleased to assist you. When is a convenient time for a private consultation or viewing?`
+      `Namaste ${enq.customerName}! Thank you for contacting Sri Ganesh Jewellery regarding "${enq.productName || 'our Royal Temple Jewellery collection'}". Our Master Goldsmith at ${enq.showroomLocation} is pleased to assist you. When is a convenient time for a private consultation or viewing?`
     );
     window.open(`https://wa.me/${cleanPhone}?text=${msg}`, '_blank');
   };

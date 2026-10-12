@@ -26,7 +26,7 @@ export const initialTestimonials: Testimonial[] = [
     name: 'Divya Venkatraman',
     role: 'Custom Heirloom Redesign',
     city: 'Hyderabad',
-    quote: 'My grandfather bought gold here in 1982, and today I customized my wedding Mayur Kadas with Sri Ganesh Bangle Works. They melted an old family ingot and re-cast it into certified 916 gold with Karatmeter documentation.',
+    quote: 'My grandfather bought gold here in 1982, and today I customized my wedding Mayur Kadas with Sri Ganesh Jewellery. They melted an old family ingot and re-cast it into certified 916 gold with Karatmeter documentation.',
     badge: '3rd Gen Customer',
     rating: 5,
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop'
