@@ -55,7 +55,7 @@ export const PortalLayout: React.FC = () => {
                 <Crown className="w-4 h-4" />
               </div>
               <span className="font-serif font-bold text-sm text-[#FBF7F0] uppercase tracking-wider hidden sm:inline">
-                Srihan Customer Portal
+                User Portal
               </span>
             </div>
           </div>

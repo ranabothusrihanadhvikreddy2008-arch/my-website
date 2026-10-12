@@ -261,8 +261,8 @@ export const Navbar: React.FC = () => {
                   title="Swarna Sanchay Scheme Member Passbook"
                 >
                   <UserIcon className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Srihan Portal</span>
-                  <span className="sm:hidden">Srihan</span>
+                  <span className="hidden sm:inline">User Portal</span>
+                  <span className="sm:hidden">Portal</span>
                 </Link>
 
                 {/* Admin Terminal Button */}
@@ -272,7 +272,7 @@ export const Navbar: React.FC = () => {
                   title="Staff & Goldsmith Admin Terminal"
                 >
                   <Lock className="w-3.5 h-3.5 text-[#8A6D3B]" />
-                  <span>Srihan Admin</span>
+                  <span>Admin Portal</span>
                 </Link>
               </div>
             )}
@@ -354,7 +354,7 @@ export const Navbar: React.FC = () => {
                   className="flex flex-col items-center justify-center gap-1 bg-[#1A140E] border border-[#5E4A28] hover:border-[#E5B544] text-[#FBF7F0] p-3 rounded-xs text-center transition-colors"
                 >
                   <UserIcon className="w-4 h-4 text-[#E5B544]" />
-                  <span className="text-xs font-bold uppercase tracking-wider">Srihan Portal</span>
+                  <span className="text-xs font-bold uppercase tracking-wider">User Portal</span>
                   <span className="text-[9px] text-[#A89D8F]">Scheme Passbook</span>
                 </Link>
 
@@ -364,7 +364,7 @@ export const Navbar: React.FC = () => {
                   className="flex flex-col items-center justify-center gap-1 bg-[#14100C] border border-[#423320] hover:border-[#8A6D3B] text-[#FBF7F0] p-3 rounded-xs text-center transition-colors"
                 >
                   <Lock className="w-4 h-4 text-[#D4AF37]" />
-                  <span className="text-xs font-bold uppercase tracking-wider">Srihan Admin</span>
+                  <span className="text-xs font-bold uppercase tracking-wider">Admin Portal</span>
                   <span className="text-[9px] text-[#A89D8F]">Bullion & Rates</span>
                 </Link>
               </div>

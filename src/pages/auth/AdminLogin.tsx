@@ -97,7 +97,7 @@ export const AdminLogin: React.FC = () => {
           </div>
           <div>
             <span className="text-[10px] font-bold tracking-[0.25em] text-[#E5B544] uppercase block">
-              SRIHAN ADMIN TERMINAL
+              ADMIN PORTAL
             </span>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#FBF7F0]">
               Staff & Vault Login
@@ -122,7 +122,7 @@ export const AdminLogin: React.FC = () => {
           <div className="flex items-center justify-between text-xs font-bold text-[#E5B544]">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Admin Terminal Access</span>
+              <span>Admin Portal Access</span>
             </span>
             <span className="text-[10px] text-[#A89D8F] font-mono">Manual Entry</span>
           </div>
@@ -272,7 +272,7 @@ export const AdminLogin: React.FC = () => {
             size="lg"
             disabled={loading}
           >
-            {loading ? 'Validating Srihan...' : 'Authenticate & Open Srihan Terminal'}
+            {loading ? 'Validating...' : 'Authenticate & Open Admin Portal'}
           </GoldButton>
         </form>
 
@@ -281,7 +281,7 @@ export const AdminLogin: React.FC = () => {
           <div className="flex items-center justify-center gap-1 text-[#8A7E70]">
             <span>Looking for Scheme Passbook?</span>
             <Link to="/portal/login" className="text-[#E5B544] hover:underline font-semibold">
-              Srihan Customer Portal Login
+              User Portal Login
             </Link>
           </div>
 

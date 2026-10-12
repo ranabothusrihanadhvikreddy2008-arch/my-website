@@ -192,7 +192,7 @@ export const Login: React.FC = () => {
             Portal Authentication
           </h1>
           <p className="text-xs text-[#9E9080]">
-            Verified database login for Srihan Customer Portal & Admin Terminal.
+            Verified database login for User Portal & Admin Portal.
           </p>
         </div>
 
@@ -205,18 +205,18 @@ export const Login: React.FC = () => {
                 <span>Active Session: Srihan</span>
               </span>
               <span className="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-1.5 py-0.5 rounded-xs">
-                {user.role === 'admin' ? 'Srihan Admin' : 'Srihan Member'}
+                {user.role === 'admin' ? 'Admin Portal' : 'User Member'}
               </span>
             </div>
             <p className="text-xs text-[#FBF7F0]">
-              Logged in as <strong>{user.name || 'Srihan'}</strong> ({user.email})
+              Logged in as <strong>{user.name || 'Member'}</strong> ({user.email})
             </p>
             <div className="flex items-center gap-2 pt-1">
               <Link
                 to={user.role === 'admin' ? '/admin' : '/portal'}
                 className="flex-1 py-1.5 px-3 bg-[#E5B544] hover:bg-[#F3C658] text-[#0C0A09] text-xs font-bold uppercase tracking-wider rounded-xs text-center transition-colors shadow-sm"
               >
-                Go to {user.role === 'admin' ? 'Srihan Admin Terminal' : 'Srihan Passbook'} →
+                Go to {user.role === 'admin' ? 'Admin Portal' : 'User Portal'} →
               </Link>
               <button
                 type="button"
@@ -241,7 +241,7 @@ export const Login: React.FC = () => {
             }`}
           >
             <User className="w-3 h-3" />
-            <span>Srihan Portal</span>
+            <span>User Portal</span>
           </button>
 
           <button
@@ -254,7 +254,7 @@ export const Login: React.FC = () => {
             }`}
           >
             <Lock className="w-3 h-3" />
-            <span>Srihan Admin</span>
+            <span>Admin Portal</span>
           </button>
 
           <button
@@ -277,7 +277,7 @@ export const Login: React.FC = () => {
             <div className="flex items-center justify-between font-semibold text-[#E5B544]">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>{activeTab === 'customer' ? 'Customer Sign In' : 'Admin Terminal Sign In'}</span>
+                <span>{activeTab === 'customer' ? 'User Portal Sign In' : 'Admin Portal Sign In'}</span>
               </span>
               <span className="text-[10px] text-[#A89D8F]">Enter Credentials Below</span>
             </div>
@@ -324,7 +324,7 @@ export const Login: React.FC = () => {
             <div>
               <div className="flex items-center justify-between mb-1">
                 <label className="text-xs font-semibold uppercase tracking-wider text-[#C4B5A5]">
-                  {activeTab === 'customer' ? 'Srihan Customer Email or Mobile' : 'Srihan Admin Terminal Email'}
+                  {activeTab === 'customer' ? 'User Email or Mobile' : 'Admin Portal Email'}
                 </label>
 
                 {/* Explicit Verify Email Button */}
@@ -492,8 +492,8 @@ export const Login: React.FC = () => {
               disabled={loading}
             >
               {loading
-                ? 'Authenticating Srihan...'
-                : `Enter ${activeTab === 'customer' ? 'Srihan Customer Passbook' : 'Srihan Admin Terminal'}`}
+                ? 'Authenticating...'
+                : `Enter ${activeTab === 'customer' ? 'User Portal' : 'Admin Portal'}`}
             </GoldButton>
           </form>
         ) : (
@@ -552,7 +552,7 @@ export const Login: React.FC = () => {
               size="lg"
               disabled={regLoading}
             >
-              {regLoading ? 'Registering...' : 'Create & Verify Passbook for Srihan'}
+              {regLoading ? 'Registering...' : 'Create & Verify Passbook'}
             </GoldButton>
           </form>
         )}

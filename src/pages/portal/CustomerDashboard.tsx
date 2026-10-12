@@ -78,7 +78,7 @@ export const CustomerDashboard: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#261E15]">
         <div>
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-            SRIHAN CUSTOMER PORTAL & PASSBOOK
+            USER PORTAL & PASSBOOK
           </span>
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#FBF7F0] mt-0.5">
             Welcome back, {user?.name || 'Srihan'}

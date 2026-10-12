@@ -62,7 +62,7 @@ export const AdminLayout: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-sm tracking-wider text-[#FBF7F0] uppercase">
-                  Srihan Admin
+                  Admin Portal
                 </span>
                 <span className="text-[9px] tracking-widest text-[#9E8B75] uppercase font-semibold">
                   Bullion Terminal

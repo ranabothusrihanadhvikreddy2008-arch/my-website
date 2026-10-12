@@ -98,7 +98,7 @@ export const CustomerLogin: React.FC = () => {
           </div>
           <div>
             <span className="text-[10px] font-bold tracking-[0.25em] text-[#E5B544] uppercase block">
-              SRIHAN CUSTOMER PORTAL
+              USER PORTAL
             </span>
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#FBF7F0]">
               Passbook Login
@@ -123,7 +123,7 @@ export const CustomerLogin: React.FC = () => {
           <div className="flex items-center justify-between text-xs font-bold text-[#E5B544]">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Customer Portal Sign In</span>
+              <span>User Portal Sign In</span>
             </span>
             <span className="text-[10px] text-[#A89D8F] font-mono">Manual Entry</span>
           </div>
@@ -294,7 +294,7 @@ export const CustomerLogin: React.FC = () => {
             size="lg"
             disabled={loading}
           >
-            {loading ? 'Authenticating Srihan...' : 'Sign In to Srihan Passbook'}
+            {loading ? 'Authenticating...' : 'Sign In to User Portal'}
           </GoldButton>
         </form>
 
@@ -304,7 +304,7 @@ export const CustomerLogin: React.FC = () => {
             <span>Store Administrator or Goldsmith?</span>
             <Link to="/admin/login" className="text-[#E5B544] hover:underline font-semibold flex items-center gap-1">
               <Lock className="w-3 h-3" />
-              <span>Srihan Admin Terminal Login</span>
+              <span>Admin Portal Login</span>
             </Link>
           </div>
 
