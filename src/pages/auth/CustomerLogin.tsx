@@ -25,8 +25,8 @@ export const CustomerLogin: React.FC = () => {
   const redirect = searchParams.get('redirect') || '/portal';
   const { login, loginAsDemoCustomer, checkEmailExists } = useAuth();
 
-  const [identifier, setIdentifier] = useState('srihan@example.com');
-  const [secret, setSecret] = useState('customer123');
+  const [identifier, setIdentifier] = useState('');
+  const [secret, setSecret] = useState('');
   const [useOtp, setUseOtp] = useState(false);
   const [showPassword, setShowPassword] = useState(true); // "show the password don't hide" - default visible!
   const [errorMsg, setErrorMsg] = useState('');
@@ -39,10 +39,9 @@ export const CustomerLogin: React.FC = () => {
     message: string;
     userName?: string;
   }>({
-    checked: true,
-    exists: true,
-    message: 'Verified: Account exists for Srihan',
-    userName: 'Srihan'
+    checked: false,
+    exists: false,
+    message: ''
   });
 
   useEffect(() => {
@@ -119,35 +118,25 @@ export const CustomerLogin: React.FC = () => {
           <span className="text-[#E5B544] font-semibold">BIS 916 Compliant</span>
         </div>
 
-        {/* 1-Click Interactive Demo Access for Srihan */}
-        <div className="bg-[#1A140F] border border-[#523F23] rounded-xs p-3.5 space-y-2.5">
+        {/* Customer Credentials Note */}
+        <div className="bg-[#1A140F] border border-[#523F23] rounded-xs p-3.5 space-y-2">
           <div className="flex items-center justify-between text-xs font-bold text-[#E5B544]">
             <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Instant Customer Demo Access</span>
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Customer Portal Sign In</span>
             </span>
-            <span className="text-[10px] text-emerald-400 font-mono">1-Click</span>
+            <span className="text-[10px] text-[#A89D8F] font-mono">Manual Entry</span>
           </div>
 
-          <div className="text-[11px] text-[#A89D8F] space-y-1">
-            <p>
-              Pre-filled with Subscriber <strong>Srihan</strong>.
-            </p>
-            <div className="flex items-center gap-2 text-[10px] font-mono text-[#D4AF37]">
-              <span>OTP: 123456</span>
-              <span>•</span>
-              <span>Pass: customer123</span>
-            </div>
-          </div>
+          <p className="text-[11px] text-[#A89D8F]">
+            Please enter your registered credentials below to access your passbook.
+          </p>
 
-          <button
-            type="button"
-            onClick={handleQuickCustomer}
-            className="w-full py-2 px-3 bg-[#2E2214] hover:bg-[#E5B544] text-[#E5B544] hover:text-[#0C0A09] border border-[#6E5325] text-xs font-bold rounded-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-          >
-            <UserCheck className="w-4 h-4" />
-            <span>Sign In as Srihan (1-Click Customer Passbook)</span>
-          </button>
+          <div className="text-[10px] font-mono text-[#D4AF37] bg-[#120F0D] p-2 rounded-xs border border-[#3A2E1F] flex flex-wrap gap-x-3 gap-y-1">
+            <span>Email: <strong>srihan@example.com</strong></span>
+            <span>Mobile: <strong>+91 95429 79999</strong></span>
+            <span>Password: <strong>customer123</strong> (OTP: <strong>123456</strong>)</span>
+          </div>
         </div>
 
         {errorMsg && (
@@ -174,7 +163,7 @@ export const CustomerLogin: React.FC = () => {
                 required
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
-                placeholder="+91 95429 79999 or srihan@example.com"
+                placeholder="Enter registered mobile (+91 95429 79999) or email"
                 className={`w-full bg-[#120F0D] border rounded-xs pl-9 pr-3.5 py-2.5 text-xs text-[#FBF7F0] focus:outline-none transition-colors ${
                   emailCheck.checked
                     ? emailCheck.exists
@@ -255,7 +244,7 @@ export const CustomerLogin: React.FC = () => {
                   type="button"
                   onClick={() => {
                     setUseOtp(!useOtp);
-                    setSecret(useOtp ? 'customer123' : '123456');
+                    setSecret('');
                   }}
                   className="text-[11px] text-[#A89D8F] hover:text-[#FBF7F0] hover:underline cursor-pointer"
                 >
@@ -268,6 +257,7 @@ export const CustomerLogin: React.FC = () => {
               <input
                 type={showPassword || useOtp ? 'text' : 'password'}
                 required
+                placeholder={useOtp ? 'Enter 6-digit OTP (e.g. 123456)' : 'Enter password (e.g. customer123)'}
                 value={secret}
                 onChange={(e) => setSecret(e.target.value)}
                 className="w-full bg-[#120F0D] border border-[#3A2E1F] rounded-xs pl-9 pr-24 py-2.5 text-xs text-[#FBF7F0] focus:outline-none focus:border-[#E5B544] font-mono tracking-wider"

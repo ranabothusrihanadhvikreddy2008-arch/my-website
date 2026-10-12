@@ -42,10 +42,8 @@ export const Login: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'customer' | 'admin' | 'register'>(
     roleParam === 'admin' ? 'admin' : 'customer'
   );
-  const [identifier, setIdentifier] = useState(
-    activeTab === 'admin' ? 'admin@sgbw.com' : 'srihan@example.com'
-  );
-  const [secret, setSecret] = useState(activeTab === 'admin' ? 'admin123' : 'customer123');
+  const [identifier, setIdentifier] = useState('');
+  const [secret, setSecret] = useState('');
   const [useOtp, setUseOtp] = useState(false);
   const [showPassword, setShowPassword] = useState(true); // "show the password don't hide" - default visible!
   const [errorMsg, setErrorMsg] = useState('');
@@ -59,19 +57,18 @@ export const Login: React.FC = () => {
     message: string;
     userName?: string;
   }>({
-    checked: true,
-    exists: true,
-    message: 'Verified: Account exists for Srihan',
-    userName: 'Srihan'
+    checked: false,
+    exists: false,
+    message: ''
   });
 
   // Directory drawer toggle
   const [showDirectory, setShowDirectory] = useState(false);
 
   // Registration state
-  const [regName, setRegName] = useState('Srihan');
+  const [regName, setRegName] = useState('');
   const [regEmail, setRegEmail] = useState('');
-  const [regPhone, setRegPhone] = useState('+91 95429 79999');
+  const [regPhone, setRegPhone] = useState('');
   const [regLoading, setRegLoading] = useState(false);
 
   // Live verification when identifier or tab changes
@@ -100,13 +97,10 @@ export const Login: React.FC = () => {
     setActiveTab(tab);
     setErrorMsg('');
     setSuccessMsg('');
+    setIdentifier('');
+    setSecret('');
     if (tab === 'admin') {
-      setIdentifier('admin@sgbw.com');
-      setSecret('admin123');
       setUseOtp(false);
-    } else if (tab === 'customer') {
-      setIdentifier('srihan@example.com');
-      setSecret('customer123');
     }
   };
 
@@ -277,41 +271,35 @@ export const Login: React.FC = () => {
           </button>
         </div>
 
-        {/* 1-Click Interactive Demo Access for Srihan */}
+        {/* Test Credentials Reference Note (User must manually enter email and password) */}
         {activeTab !== 'register' && (
-          <div className="bg-[#1A140F] border border-[#523F23] rounded-xs p-3.5 space-y-2.5">
-            <div className="flex items-center justify-between text-xs font-bold text-[#E5B544]">
+          <div className="bg-[#1A140F] border border-[#523F23] rounded-xs p-3 space-y-1.5 text-xs">
+            <div className="flex items-center justify-between font-semibold text-[#E5B544]">
               <span className="flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{activeTab === 'customer' ? 'Srihan Customer Pass' : 'Srihan Admin Terminal Pass'}</span>
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>{activeTab === 'customer' ? 'Customer Sign In' : 'Admin Terminal Sign In'}</span>
               </span>
-              <span className="text-[10px] text-emerald-400 font-mono">1-Click Fast Pass</span>
+              <span className="text-[10px] text-[#A89D8F]">Enter Credentials Below</span>
             </div>
 
             <p className="text-[11px] text-[#A89D8F]">
-              {activeTab === 'customer' ? (
-                <>Pre-filled for registered subscriber <strong>Srihan</strong> (Swarna Sanchay Passbook: SSY-2025-1102).</>
-              ) : (
-                <>Pre-filled for bullion master <strong>Srihan</strong> (Principal Controller Terminal).</>
-              )}
+              Please enter your registered credentials to sign in:
             </p>
 
-            <button
-              type="button"
-              onClick={() => {
-                if (activeTab === 'customer') {
-                  loginAsDemoCustomer();
-                  navigate(redirect || '/portal');
-                } else {
-                  loginAsDemoAdmin();
-                  navigate(redirect || '/admin');
-                }
-              }}
-              className="w-full py-2 px-3 bg-[#2E2214] hover:bg-[#E5B544] text-[#E5B544] hover:text-[#0C0A09] border border-[#6E5325] text-xs font-bold rounded-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
-            >
-              <Crown className="w-4 h-4" />
-              <span>Sign In as Srihan ({activeTab === 'customer' ? 'Customer Portal' : 'Admin Terminal'}) (1-Click)</span>
-            </button>
+            <div className="text-[10px] font-mono text-[#D4AF37] bg-[#120F0D] p-2 rounded-xs border border-[#3A2E1F] flex flex-wrap gap-x-3 gap-y-1">
+              {activeTab === 'customer' ? (
+                <>
+                  <span>Email: <strong>srihan@example.com</strong></span>
+                  <span>Mobile: <strong>+91 95429 79999</strong></span>
+                  <span>Password: <strong>customer123</strong> (OTP: <strong>123456</strong>)</span>
+                </>
+              ) : (
+                <>
+                  <span>Email: <strong>admin@sgbw.com</strong></span>
+                  <span>Password: <strong>admin123</strong></span>
+                </>
+              )}
+            </div>
           </div>
         )}
 
@@ -355,7 +343,7 @@ export const Login: React.FC = () => {
                 <input
                   type={activeTab === 'admin' ? 'email' : 'text'}
                   required
-                  placeholder={activeTab === 'admin' ? 'admin@sgbw.com' : 'srihan@example.com'}
+                  placeholder={activeTab === 'admin' ? 'Enter admin email (admin@sgbw.com)' : 'Enter email or mobile (+91 95429 79999)'}
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
                   className={`w-full bg-[#120F0D] border rounded-xs pl-9 pr-3.5 py-2.5 text-xs text-[#FBF7F0] focus:outline-none transition-colors ${
@@ -449,7 +437,7 @@ export const Login: React.FC = () => {
                       type="button"
                       onClick={() => {
                         setUseOtp(!useOtp);
-                        setSecret(useOtp ? 'customer123' : '123456');
+                        setSecret('');
                       }}
                       className="text-[11px] text-[#A89D8F] hover:text-[#FBF7F0] hover:underline cursor-pointer"
                     >
@@ -463,6 +451,7 @@ export const Login: React.FC = () => {
                 <input
                   type={showPassword || useOtp ? 'text' : 'password'}
                   required
+                  placeholder={useOtp ? 'Enter 6-digit OTP' : 'Enter password'}
                   value={secret}
                   onChange={(e) => setSecret(e.target.value)}
                   className="w-full bg-[#120F0D] border border-[#3A2E1F] rounded-xs pl-9 pr-24 py-2.5 text-xs text-[#FBF7F0] focus:outline-none focus:border-[#E5B544] font-mono tracking-wider"

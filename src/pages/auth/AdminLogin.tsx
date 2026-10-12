@@ -25,8 +25,8 @@ export const AdminLogin: React.FC = () => {
   const redirect = searchParams.get('redirect') || '/admin';
   const { login, loginAsDemoAdmin, checkEmailExists } = useAuth();
 
-  const [email, setEmail] = useState('admin@sgbw.com');
-  const [password, setPassword] = useState('admin123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true); // "show the password don't hide" - default visible!
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
@@ -38,10 +38,9 @@ export const AdminLogin: React.FC = () => {
     message: string;
     userName?: string;
   }>({
-    checked: true,
-    exists: true,
-    message: 'Verified: Principal Bullion Master account found',
-    userName: 'Srihan'
+    checked: false,
+    exists: false,
+    message: ''
   });
 
   useEffect(() => {
@@ -118,33 +117,24 @@ export const AdminLogin: React.FC = () => {
           <span className="text-emerald-400 font-mono font-semibold">IBJA Gateway</span>
         </div>
 
-        {/* 1-Click Master Access for Srihan */}
-        <div className="bg-[#1C150D] border border-[#5A4320] rounded-xs p-3.5 space-y-2.5">
+        {/* Admin Credentials Note */}
+        <div className="bg-[#1C150D] border border-[#5A4320] rounded-xs p-3.5 space-y-2">
           <div className="flex items-center justify-between text-xs font-bold text-[#E5B544]">
             <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Master Admin Credentials</span>
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Admin Terminal Access</span>
             </span>
-            <span className="text-[10px] text-[#A89D8F] font-mono">Principal Bullion Master</span>
+            <span className="text-[10px] text-[#A89D8F] font-mono">Manual Entry</span>
           </div>
 
-          <div className="text-[11px] text-[#A89D8F] space-y-1">
-            <p>
-              Login as <strong>Srihan</strong> (Principal Bullion Controller & Goldsmith).
-            </p>
-            <div className="text-[10px] font-mono text-[#E5B544]">
-              <span>admin@sgbw.com • admin123</span>
-            </div>
-          </div>
+          <p className="text-[11px] text-[#A89D8F]">
+            Please enter your administrator terminal credentials below:
+          </p>
 
-          <button
-            type="button"
-            onClick={handleQuickAdmin}
-            className="w-full py-2 px-3 bg-[#2A1D0E] hover:bg-[#E5B544] text-[#E5B544] hover:text-[#0C0A09] border border-[#7D5C26] text-xs font-bold rounded-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-          >
-            <Crown className="w-4 h-4" />
-            <span>Sign In as Srihan (1-Click Admin Master)</span>
-          </button>
+          <div className="text-[10px] font-mono text-[#E5B544] bg-[#100D0A] p-2 rounded-xs border border-[#3A2E1F] flex flex-wrap gap-x-3 gap-y-1">
+            <span>Email: <strong>admin@sgbw.com</strong></span>
+            <span>Password: <strong>admin123</strong></span>
+          </div>
         </div>
 
         {errorMsg && (
@@ -171,7 +161,7 @@ export const AdminLogin: React.FC = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@sgbw.com"
+                placeholder="Enter administrator email (admin@sgbw.com)"
                 className={`w-full bg-[#100D0A] border rounded-xs pl-9 pr-3.5 py-2.5 text-xs text-[#FBF7F0] focus:outline-none transition-colors ${
                   emailCheck.checked
                     ? emailCheck.exists
@@ -243,6 +233,7 @@ export const AdminLogin: React.FC = () => {
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
+                placeholder="Enter security password (admin123)"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-[#100D0A] border border-[#3A2E1F] rounded-xs pl-9 pr-24 py-2.5 text-xs text-[#FBF7F0] focus:outline-none focus:border-[#E5B544] font-mono tracking-wider"
